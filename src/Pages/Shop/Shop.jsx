@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import "./Shop.css";
 
 const allMealsUrl = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
 
@@ -10,7 +11,7 @@ const Shop = () => {
 	const fetchMeals = async (url) => {
 		try {
 			const { data } = await axios(url);
-			setMeals(data);
+			setMeals(data.meals);
 		} catch (e) {
 			console.log(e.responce);
 		}
@@ -18,7 +19,6 @@ const Shop = () => {
 
 	useEffect(() => {
 		fetchMeals(allMealsUrl);
-		console.log(meals);
 	}, []);
 
 	return (
@@ -36,6 +36,7 @@ const Shop = () => {
 						/>
 						<footer>
 							<h5>{title}</h5>
+							<button className='add-to-cart-btn'>Add to cart</button>
 						</footer>
 					</div>
 				);

@@ -1,0 +1,70 @@
+.secton .section-center {
+	padding: 3rem 0;
+	width: 90vw;
+	max-width: 1120;
+	margin-top: 3px;
+	margin: 0 auto;
+}
+.section-center {
+	display: grid;
+	gap: 2rem;
+}
+@media screen and(min-width: 776px) {
+	.section-center {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+@media screen and (min-width: 992px) {
+	.section-center {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}
+.single-meal-el {
+	background: white;
+	color: rgb(41, 41, 41);
+	border-radius: 0.25rem;
+	box-shadow: 0 4px 6px -1px rgba(232, 231, 231, 0.1),
+		0 2px 4px -1px rgba(211, 210, 210, 0.06);
+	transition: 0.3s ease-in-out all;
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.single-meal-el:hover {
+	box-shadow: 0 20px 25px -5px rgba(255, 254, 254, 0.1),
+		0 10px 10px -5px rgba(248, 248, 248, 0.04);
+}
+.single-meal-el img {
+	height: 15rem;
+	border-top-left-radius: 0.25rem;
+	border-top-right-radius: 0.25rem;
+	cursor: pointer;
+	width: 100%;
+	display: block;
+	object-fit: cover;
+}
+
+.single-meal-el h5 {
+	padding: 0;
+	margin: 0;
+}
+.single-meal-el footer {
+	padding: 1rem 1.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.add-to-cart-btn {
+	background-color: transparent;
+	border: 2px solid rgb(19, 19, 19);
+	min-width: 100px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-radius: 15px;
+	cursor: pointer;
+}
+.add-to-cart-btn:hover {
+	background-color: blue;
+	transition: 0.3s ease-in-out all;
+}
