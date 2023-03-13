@@ -1,44 +1,28 @@
-import React, { createContext, useState, useEffect, useContext } from "react";
-import axios from "axios";
+import { createContext, useContext, useState } from "react";
+import { PRODUCTS } from "./Products";
 
 const ShopContex = createContext();
-const allMealsUrl = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
+
+const getDefaultCart = () => {
+	let cart = {};
+	for (let i = 1; i < PRODUCTS.length + 1; i++) {
+		cart[i] = 0;
+	}
+	return cart;
+};
 
 const ShopContextProvider = ({ children }) => {
-	const [cartItems, setCartItems] = useState;
-	const [meals, setMeals] = useState([]);
+	const [cartItems, setCartItems] = useState();
 
-	const fetchMeals = async (url) => {
-		try {
-			const { data } = await axios(url);
-			setMeals(data.meals);
-			console.log(data);
-		} catch (e) {
-			console.log(e.responce);
-		}
+	const addToCart = (itemId) => {
+		setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
 	};
 
-	useEffect(() => {
-		fetchMeals(allMealsUrl);
-	}, []);
-	// eslint-disable-next-line
-	const defaultCart = () => {
-		let cart = {};
-		for (let i = 1; i < meals.length + 1; i++) {
-			cart[i] = 0;
-		}
-		return cart;
+	const removeFromCart = (itemId) => {
+		setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
 	};
 
-	const addToCart = (idMeal) => {
-		setCartItems((prev) => ({ ...prev, [idMeal]: prev[idMeal] + 1 }));
-	};
-
-	const removeFromCart = (idMeal) => {
-		setCartItems((prev) => ({ ...prev, [idMeal]: prev[idMeal] - 1 }));
-	};
-
-	const contextValue = { cartItems, addToCart, removeFromCart, meals };
+	const contextValue = { cartItems, addToCart, removeFromCart };
 	return (
 		<ShopContex.Provider value={{ contextValue }}>
 			{children}

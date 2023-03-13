@@ -1,59 +1,50 @@
-.secton .section-center {
-	padding: 3rem 0;
-	width: 90vw;
-	max-width: 1120;
-	margin-top: 3px;
-	margin: 0 auto;
+.shopTitle {
+	margin-top: 100px;
+	text-align: center;
+	font-size: 40px;
 }
-.section-center {
+.products {
+	width: 100%;
+	height: auto;
 	display: grid;
-	gap: 2rem;
+	grid-template-columns: 1fr 1fr 1fr;
+	place-items: center;
 }
-@media screen and(min-width: 776px) {
-	.section-center {
+
+.product {
+	border-radius: 15px;
+	width: 300px;
+	height: 350px;
+	margin: 100px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+@media screen and (min-width: 776px) {
+	.product {
 		grid-template-columns: 1fr 1fr;
 	}
 }
 @media screen and (min-width: 992px) {
-	.section-center {
+	.product {
 		grid-template-columns: 1fr 1fr 1fr;
 	}
 }
-.single-meal-el {
-	background: white;
-	color: rgb(41, 41, 41);
-	border-radius: 0.25rem;
-	box-shadow: 0 4px 6px -1px rgba(232, 231, 231, 0.1),
-		0 2px 4px -1px rgba(211, 210, 210, 0.06);
-	transition: 0.3s ease-in-out all;
-	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-}
-.single-meal-el:hover {
-	box-shadow: 0 20px 25px -5px rgba(255, 254, 254, 0.1),
-		0 10px 10px -5px rgba(248, 248, 248, 0.04);
-}
-.single-meal-el img {
-	height: 15rem;
-	border-top-left-radius: 0.25rem;
-	border-top-right-radius: 0.25rem;
-	cursor: pointer;
-	width: 100%;
-	display: block;
-	object-fit: cover;
+.product img {
+	width: 400px;
 }
 
-.single-meal-el h5 {
-	padding: 0;
-	margin: 0;
+.product .description {
+	text-align: center;
 }
-.single-meal-el footer {
-	padding: 1rem 1.5rem;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	flex-wrap: wrap;
+
+.product:hover {
+	transition: 0.3s ease-in;
+	cursor: pointer;
 }
-.add-to-cart-btn {
+
+.addToCartBttn {
 	background-color: transparent;
 	border: 2px solid rgb(19, 19, 19);
 	min-width: 100px;
@@ -62,10 +53,10 @@
 	padding-top: 5px;
 	padding-bottom: 5px;
 	border-radius: 15px;
-	cursor: pointer;
 }
-.add-to-cart-btn:hover {
-	background-color: black;
+
+.addToCartBttn:hover {
+	background-color: rgb(19, 19, 19);
 	color: white;
-	transition: 0.3s ease-in-out all;
+	cursor: pointer;
 }

@@ -1,35 +1,21 @@
-import { useAppContext } from "../../Context";
+import React from "react";
+import { PRODUCTS } from "../../Products";
+import { Product } from "./products";
 import "./Shop.css";
 
 const Shop = () => {
-	const { meals, addToCart } = useAppContext();
-
 	return (
-		<section className='section-center'>
-			{meals.map((singleMeal) => {
-				const { idMeal, strMeal: title, strMealThumb: img } = singleMeal;
-				return (
-					<div
-						key={idMeal}
-						className='single-meal-el'
-					>
-						<img
-							src={img}
-							alt='food'
-						/>
-						<footer>
-							<h5>{title}</h5>
-							<button
-								className='add-to-cart-btn'
-								onClick={() => addToCart}
-							>
-								Add to cart
-							</button>
-						</footer>
-					</div>
-				);
-			})}
-		</section>
+		<div className='shop'>
+			<div className='shopTitle'>
+				<h1>Tech Shop</h1>
+			</div>
+
+			<div className='products'>
+				{PRODUCTS.map((product) => (
+					<Product data={product} />
+				))}
+			</div>
+		</div>
 	);
 };
 
