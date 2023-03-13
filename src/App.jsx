@@ -3,23 +3,26 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Conponemts/Navbar";
 import Cart from "./Pages/Cart/Cart";
 import Shop from "./Pages/Shop/Shop";
+import { ShopContextProvider } from "./Context";
 
 function App() {
 	return (
 		<div className='App'>
-			<Router>
-				<Navbar />
-				<Routes>
-					<Route
-						path='/'
-						element={<Shop />}
-					/>
-					<Route
-						path='/cart'
-						element={<Cart />}
-					/>
-				</Routes>
-			</Router>
+			<ShopContextProvider>
+				<Router>
+					<Navbar />
+					<Routes>
+						<Route
+							path='/'
+							element={<Shop />}
+						/>
+						<Route
+							path='/cart'
+							element={<Cart />}
+						/>
+					</Routes>
+				</Router>
+			</ShopContextProvider>
 		</div>
 	);
 }

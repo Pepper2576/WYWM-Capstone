@@ -65,6 +65,7 @@
 	cursor: pointer;
 }
 .add-to-cart-btn:hover {
-	background-color: blue;
+	background-color: black;
+	color: white;
 	transition: 0.3s ease-in-out all;
 }

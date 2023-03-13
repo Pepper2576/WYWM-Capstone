@@ -1,25 +1,8 @@
-import React from "react";
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useAppContext } from "../../Context";
 import "./Shop.css";
 
-const allMealsUrl = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
-
 const Shop = () => {
-	const [meals, setMeals] = useState([]);
-
-	const fetchMeals = async (url) => {
-		try {
-			const { data } = await axios(url);
-			setMeals(data.meals);
-		} catch (e) {
-			console.log(e.responce);
-		}
-	};
-
-	useEffect(() => {
-		fetchMeals(allMealsUrl);
-	}, []);
+	const { meals, addToCart } = useAppContext();
 
 	return (
 		<section className='section-center'>
@@ -36,7 +19,12 @@ const Shop = () => {
 						/>
 						<footer>
 							<h5>{title}</h5>
-							<button className='add-to-cart-btn'>Add to cart</button>
+							<button
+								className='add-to-cart-btn'
+								onClick={() => addToCart}
+							>
+								Add to cart
+							</button>
 						</footer>
 					</div>
 				);
