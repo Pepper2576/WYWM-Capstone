@@ -1,3 +1,13 @@
+::after,
+::before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 100%;
+}
 .shopTitle {
 	margin-top: 100px;
 	text-align: center;
@@ -10,53 +20,66 @@
 	grid-template-columns: 1fr 1fr 1fr;
 	place-items: center;
 }
+.section,
+.section-center {
+	padding: 3rem 0;
+	width: 90vm;
+	max-width: 1120px;
+	margin: 0 auto;
+	display: table-row;
+}
 
-.product {
-	border-radius: 15px;
-	width: 300px;
-	height: 350px;
-	margin: 100px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+.section-center {
+	display: grid;
+	gap: 2rem;
 }
 @media screen and (min-width: 776px) {
-	.product {
+	.products {
 		grid-template-columns: 1fr 1fr;
 	}
 }
 @media screen and (min-width: 992px) {
-	.product {
+	.products {
 		grid-template-columns: 1fr 1fr 1fr;
 	}
 }
-.product img {
-	width: 400px;
+.single-product {
+	background: white;
+	color: gray;
+	border-radius: 0.25rem;
+	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+		0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	transition: 0.3s ease-in-out all;
 }
-
-.product .description {
-	text-align: center;
+.single-product:hover {
+	box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+		0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
-
-.product:hover {
-	transition: 0.3s ease-in;
+.single-product img {
+	height: 15rem;
+	border-top-left-radius: 0.25rem;
+	border-top-right-radius: 0.25rem;
+}
+.single-product p {
+	padding: 0;
+	margin: 0;
+}
+.single-product footer {
+	padding: 1rem 1.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.add-btn {
+	background: transparent;
+	border: transparent;
+	font-size: 1.5rem;
 	cursor: pointer;
+	transition: 0.3s ease-in-out all;
 }
-
-.addToCartBttn {
-	background-color: transparent;
-	border: 2px solid rgb(19, 19, 19);
-	min-width: 100px;
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	border-radius: 15px;
-}
-
-.addToCartBttn:hover {
-	background-color: rgb(19, 19, 19);
+.add-btn:hover {
+	background-color: black;
 	color: white;
-	cursor: pointer;
+	transform: translateY(-2px);
 }

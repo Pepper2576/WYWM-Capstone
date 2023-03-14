@@ -5,23 +5,26 @@ export const Product = (props) => {
 	const { addToCart } = useAppContext();
 
 	return (
-		<div className='product'>
-			<img
-				src={productImage}
-				alt='Tech img'
-			/>
-			<div className='description'>
-				<p>
-					<b>{productName}</b>
-				</p>
-				<p> ${price}</p>
+		<section className='section-center'>
+			<div className='single-product'>
+				<img
+					src={productImage}
+					alt='Tech img'
+				/>
+				<footer>
+					<p>
+						<b>{productName}</b>
+						<br></br>£{price}
+					</p>
+
+					<button
+						className='add-btn'
+						onClick={() => addToCart(id)}
+					>
+						Add To Cart
+					</button>
+				</footer>
 			</div>
-			<button
-				className='addToCartBttn'
-				onClick={() => addToCart(id)}
-			>
-				Add To Cart
-			</button>
-		</div>
+		</section>
 	);
 };
