@@ -1,9 +1,11 @@
-import { useAppContext } from "../../Context";
+import React, { useContext } from "react";
+import { ShopContext } from "../../Context";
+import { BsCartPlus } from "react-icons/bs";
 
 export const Product = (props) => {
 	const { id, productName, price, productImage } = props.data;
-	const { addToCart } = useAppContext();
-
+	const { addToCart, cartItems } = useContext(ShopContext);
+	const cartItemsAmount = cartItems[id];
 	return (
 		<section className='section-center'>
 			<div className='single-product'>
@@ -21,7 +23,8 @@ export const Product = (props) => {
 						className='add-btn'
 						onClick={() => addToCart(id)}
 					>
-						Add To Cart
+						<BsCartPlus size={25} />
+						{cartItemsAmount > 0 && <> ({cartItemsAmount})</>}
 					</button>
 				</footer>
 			</div>

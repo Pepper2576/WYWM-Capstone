@@ -5,7 +5,10 @@ import "./Shop.css";
 
 const Shop = () => {
 	return (
-		<div className='shop'>
+		<div
+			className='shop'
+			key={"itemId"}
+		>
 			<div className='shopTitle'>
 				<h1>WYWM Shop</h1>
 			</div>
