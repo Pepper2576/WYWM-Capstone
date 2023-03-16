@@ -5,8 +5,17 @@ import { CartItem } from "./CartItem";
 import "./Cart.css";
 
 const Cart = () => {
-	const { cartItems, getTotalCartAmount } = useContext(ShopContext);
+	const {
+		cartItems,
+		getTotalCartAmount,
+		clearCart,
+		getTotalCartAmountTax,
+		getTotalCartAmountWithShipping,
+	} = useContext(ShopContext);
 	const totalAmount = getTotalCartAmount();
+	const totalAmountTax = getTotalCartAmountTax();
+	const totalCartAmountWithShipping = getTotalCartAmountWithShipping();
+
 	return (
 		<div className='cart'>
 			<div>
@@ -21,6 +30,10 @@ const Cart = () => {
 			</div>
 			<div className='total'>
 				<p>Subtotal: £{totalAmount}</p>
+				<p>Total with 10% tax: £{totalAmountTax}</p>
+				<p>Total with shipping: £{totalCartAmountWithShipping}</p>
+				<button onClick={() => clearCart()}>Remove All</button>
+				<button>Checkout</button>
 			</div>
 		</div>
 	);
