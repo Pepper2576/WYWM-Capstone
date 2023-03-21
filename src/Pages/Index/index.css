@@ -10,8 +10,3 @@ img {
 	max-height: 10cm;
 	max-width: 5cm;
 }
-
-.text {
-	flex: 2;
-	padding: 0 20px;
-}

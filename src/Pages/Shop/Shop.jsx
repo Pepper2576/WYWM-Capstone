@@ -20,6 +20,7 @@ const Shop = () => {
 					onClick={() => {
 						setModalOpen(true);
 					}}
+					data-cy='modalBtn'
 				>
 					<FiShoppingCart size={32} />
 				</button>
@@ -28,7 +29,10 @@ const Shop = () => {
 
 			<div className='products'>
 				{PRODUCTS.map((product) => (
-					<Product data={product} />
+					<Product
+						data={product}
+						key={product.id}
+					/>
 				))}
 			</div>
 		</div>

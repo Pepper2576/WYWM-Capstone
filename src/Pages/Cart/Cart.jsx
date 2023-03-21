@@ -29,11 +29,18 @@ const Cart = () => {
 				})}
 			</div>
 			<div className='total'>
-				<p>Subtotal: £{totalAmount}</p>
-				<p>Total with 10% tax: £{totalAmountTax}</p>
-				<p>Total with shipping: £{totalCartAmountWithShipping}</p>
-				<button onClick={() => clearCart()}>Remove All</button>
-				<button>Checkout</button>
+				<p data-cy='cartSubtotal'>Subtotal: £{totalAmount}</p>
+				<p data-cy='cartSubtotalTax'>Total with 10% tax: £{totalAmountTax}</p>
+				<p data-cy='totalPlusShipping'>
+					Total with shipping: £{totalCartAmountWithShipping}
+				</p>
+				<button
+					onClick={() => clearCart()}
+					data-cy='removeAllBtn'
+				>
+					Remove All
+				</button>
+				<button data-cy='checkoutBtn'>Checkout</button>
 			</div>
 		</div>
 	);

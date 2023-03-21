@@ -10,6 +10,7 @@ function Modal({ setOpenModal }) {
 						onClick={() => {
 							setOpenModal(false);
 						}}
+						data-cy='modalCloseBtn'
 					>
 						X
 					</button>

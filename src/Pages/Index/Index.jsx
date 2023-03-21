@@ -41,13 +41,13 @@ const Index = () => {
 			</Carousel>
 			<div>
 				<h5>
-					Who are we?{" "}
-					<a href='https://withyouwithme.com/'>We are With You With Me</a>!
+					Who are we?
+					<a href='https://withyouwithme.com/'> We are With You With Me</a>!
 				</h5>
 				<p>
 					A company that is solving unemployment by helping people find jobs in
 					the technology industry.
-					<br /> Based on POTENSIAL and not what they can put on a CV.
+					<br /> Based on <b>POTENTIAL</b> and not what they can put on a CV.
 					<br />
 					We have created a few products to help use fulfil this dream. <br />{" "}
 					Have a look at our <a href='http://localhost:3000/shop'>shop</a> and

@@ -22,6 +22,7 @@ export const Product = (props) => {
 					<button
 						className='add-btn'
 						onClick={() => addToCart(id)}
+						data-cy={id}
 					>
 						<BsCartPlus size={25} />
 						{cartItemsAmount > 0 && <> ({cartItemsAmount})</>}

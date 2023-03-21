@@ -10,18 +10,21 @@ const Navbar = () => {
 				<Link
 					className='index-link'
 					to='/'
+					data-cy='indexLink'
 				>
 					Home
 				</Link>
 				<Link
 					className='shop-link'
 					to='/shop'
+					data-cy='shopLink'
 				>
 					Shop
 				</Link>
 				<Link
 					className='cart-icon'
 					to='/cart'
+					data-cy='cartLink'
 				>
 					<FiShoppingCart size={32} />
 				</Link>
