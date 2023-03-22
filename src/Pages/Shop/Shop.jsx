@@ -7,10 +7,13 @@ import Modal from "../Modal/Modal";
 import { ShopContext } from "../../Context";
 
 const Shop = (props) => {
+	// Allows the Modal to be toggled on and off (true / false)
 	const [modalOpen, setModalOpen] = useState(false);
+	// imports functions from the ShopContext.jsx file
 	const { cartItems, getCartItemCount } = useContext(ShopContext);
 
 	return (
+		// Build for how products are displayed on the Shop.jsx page and allows Modal to be displayed. Cart icons imported from react-icons
 		<div
 			className='shop'
 			key={"itemId"}

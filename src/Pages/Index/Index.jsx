@@ -7,6 +7,7 @@ import Carousel from "react-bootstrap/Carousel";
 import "./index.css";
 
 const Index = () => {
+	// useState to allow carousel imgs to be controlled manually
 	const [index, setIndex] = useState(0);
 
 	const handleSelect = (selectedIndex, e) => {
@@ -14,6 +15,7 @@ const Index = () => {
 	};
 
 	return (
+		// <Carousel> imported from react-bootstrap/Carousel. Showing a selection of product imgs and WYWM logo.
 		<div className='container'>
 			<div className='container carousel-container'>
 				<Carousel
@@ -52,6 +54,7 @@ const Index = () => {
 				</Carousel>
 			</div>
 			<div className='WYWM-intro'>
+				{/* Brief into to WYWM with links to the WYWM potential homepage and localhost shop page */}
 				<h5>
 					Who are we? We are{" "}
 					<a href='https://withyouwithme.com/'>With You With Me</a>!

@@ -7,6 +7,7 @@ import logo from "../img/logo.png";
 const Navbar = () => {
 	return (
 		<div className='navbar'>
+			{/* Logo on Nav bar */}
 			<div className='logo-container'>
 				<img
 					src={logo}
@@ -14,6 +15,7 @@ const Navbar = () => {
 					className='logo'
 				/>
 			</div>
+			{/* Nav bar link */}
 			<div className='links'>
 				<NavLink
 					className='index-link'
