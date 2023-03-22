@@ -43,6 +43,10 @@ describe("Test cart calculations subtotal, with 10% tax & total with shipping", 
 		cy.get('[data-cy="cartSubtotal"]').should("contain", `£50`);
 		cy.get('[data-cy="cartSubtotalTax"]').should("contain", `£55`);
 		cy.get('[data-cy="totalPlusShipping"]').should("contain", `£75`);
+		cy.get("[data-cy=removeAllBtn]").contains("Remove All").click();
+		cy.get('[data-cy="cartSubtotal"]').should("contain", `£0`);
+		cy.get('[data-cy="cartSubtotalTax"]').should("contain", `£0`);
+		cy.get('[data-cy="totalPlusShipping"]').should("contain", `£0`);
 	});
 });
 describe("Test adding item to shopping cart", () => {

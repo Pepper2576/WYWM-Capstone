@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { PRODUCTS } from "../../Products";
 import { Product } from "./products";
 import "./Shop.css";
 import { FiShoppingCart } from "react-icons/fi";
 import Modal from "../Modal/Modal";
-const Shop = () => {
+import { ShopContext } from "../../Context";
+
+const Shop = (props) => {
 	const [modalOpen, setModalOpen] = useState(false);
+	const { cartItems, getCartItemCount } = useContext(ShopContext);
+
 	return (
 		<div
 			className='shop'
@@ -14,7 +18,7 @@ const Shop = () => {
 			<div className='shopTitle'>
 				<h1>WYWM Shop</h1>
 			</div>
-			<div>
+			<div className='modal-container'>
 				<button
 					className='openModalBtn'
 					onClick={() => {
@@ -23,6 +27,9 @@ const Shop = () => {
 					data-cy='modalBtn'
 				>
 					<FiShoppingCart size={32} />
+					<span className='itemCount'>
+						{getCartItemCount()} {cartItems.length > 0}
+					</span>
 				</button>
 				{modalOpen && <Modal setOpenModal={setModalOpen} />}
 			</div>

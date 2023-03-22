@@ -1,33 +1,45 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { FiShoppingCart } from "react-icons/fi";
 import "./Navbar.css";
+import logo from "../img/logo.png";
 
 const Navbar = () => {
 	return (
 		<div className='navbar'>
+			<div className='logo-container'>
+				<img
+					src={logo}
+					alt='WYWM-logo'
+					className='logo'
+				/>
+			</div>
 			<div className='links'>
-				<Link
+				<NavLink
 					className='index-link'
+					exact
 					to='/'
 					data-cy='indexLink'
+					activeClassName='active'
 				>
 					Home
-				</Link>
-				<Link
+				</NavLink>
+				<NavLink
 					className='shop-link'
 					to='/shop'
 					data-cy='shopLink'
+					activeClassName='active'
 				>
 					Shop
-				</Link>
-				<Link
+				</NavLink>
+				<NavLink
 					className='cart-icon'
 					to='/cart'
 					data-cy='cartLink'
+					activeClassName='active'
 				>
 					<FiShoppingCart size={32} />
-				</Link>
+				</NavLink>
 			</div>
 		</div>
 	);

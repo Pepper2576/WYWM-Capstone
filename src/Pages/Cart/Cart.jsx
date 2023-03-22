@@ -3,6 +3,7 @@ import { PRODUCTS } from "../../Products";
 import { ShopContext } from "../../Context";
 import { CartItem } from "./CartItem";
 import "./Cart.css";
+import Button from "react-bootstrap/Button";
 
 const Cart = () => {
 	const {
@@ -34,13 +35,21 @@ const Cart = () => {
 				<p data-cy='totalPlusShipping'>
 					Total with shipping: £{totalCartAmountWithShipping}
 				</p>
-				<button
+				<Button
 					onClick={() => clearCart()}
 					data-cy='removeAllBtn'
+					className='removeAllBtn '
+					variant='danger'
 				>
 					Remove All
-				</button>
-				<button data-cy='checkoutBtn'>Checkout</button>
+				</Button>
+				<Button
+					variant='primary'
+					data-cy='checkoutBtn'
+					className='checkoutBtn '
+				>
+					Checkout
+				</Button>
 			</div>
 		</div>
 	);

@@ -45,10 +45,12 @@ export const ShopContextProvider = (props) => {
 			if (cartItems[item] > 0) {
 				let itemInfo = PRODUCTS.find((product) => product.id === Number(item));
 				totalAmountTax += cartItems[item] * itemInfo.price;
+				let totalAmountTaxWithShipping = totalAmountTax * tax + shipping;
+				return totalAmountTaxWithShipping.toFixed(2);
+			} else {
+				return "0";
 			}
 		}
-		let totalAmountTaxWithShipping = totalAmountTax * tax + shipping;
-		return totalAmountTaxWithShipping.toFixed(2);
 	};
 
 	const addToCart = (itemId) => {
@@ -67,6 +69,16 @@ export const ShopContextProvider = (props) => {
 		setCartItems(getDefaultCart());
 	};
 
+	const getCartItemCount = () => {
+		let count = 0;
+		for (const item in cartItems) {
+			if (cartItems[item] > 0) {
+				count += cartItems[item];
+			}
+		}
+		return count;
+	};
+
 	const contextValue = {
 		cartItems,
 		addToCart,
@@ -76,6 +88,7 @@ export const ShopContextProvider = (props) => {
 		clearCart,
 		getTotalCartAmountTax,
 		getTotalCartAmountWithShipping,
+		getCartItemCount,
 	};
 	console.log(cartItems);
 

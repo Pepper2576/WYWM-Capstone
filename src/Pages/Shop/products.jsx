@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { ShopContext } from "../../Context";
 import { BsCartPlus } from "react-icons/bs";
+import "./Shop.css";
 
 export const Product = (props) => {
 	const { id, productName, price, productImage } = props.data;
@@ -12,6 +13,7 @@ export const Product = (props) => {
 				<img
 					src={productImage}
 					alt='Tech img'
+					className='product-image'
 				/>
 				<footer>
 					<p>
