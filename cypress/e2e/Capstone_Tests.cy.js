@@ -49,8 +49,8 @@ describe("Test cart calculations subtotal, with 10% tax & total with shipping", 
 		cy.get('[data-cy="totalPlusShipping"]').should("contain", `£0`);
 	});
 });
-describe("Test adding item to shopping cart", () => {
-	it("Add item to shopping cart", () => {
+describe("Test removing all item function in shopping cart", () => {
+	it("Remove all items from cart", () => {
 		cy.visit("http://localhost:3000/shop");
 		cy.url().should("include", "/shop");
 		cy.get("[data-cy=1]").click();

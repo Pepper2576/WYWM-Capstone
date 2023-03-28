@@ -6,7 +6,7 @@ import { GrFormAdd } from "react-icons/gr";
 export const CartItem = (props) => {
 	// props imported from the Cart.jsx parent element
 	const { id, productName, price, productImage } = props.data;
-	// functions required for the page imported from the
+	// functions required for the page imported from the Context.jsx
 	const { cartItems, addToCart, removeFromCart, updateCartItemCount } =
 		useContext(ShopContext);
 
