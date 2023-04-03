@@ -48,12 +48,13 @@ export const ShopContextProvider = (props) => {
 			if (cartItems[item] > 0) {
 				let itemInfo = PRODUCTS.find((product) => product.id === Number(item));
 				totalAmountTax += cartItems[item] * itemInfo.price;
-				let totalAmountTaxWithShipping = totalAmountTax * tax + shipping;
-				return totalAmountTaxWithShipping.toFixed(2);
-			} else {
-				return "0";
 			}
 		}
+		let totalAmountTaxWithShipping = 0;
+		if (totalAmountTax > 0) {
+			totalAmountTaxWithShipping = totalAmountTax * tax + shipping;
+		}
+		return totalAmountTaxWithShipping.toFixed(2);
 	};
 	// Function to add items to cart
 	const addToCart = (itemId) => {
