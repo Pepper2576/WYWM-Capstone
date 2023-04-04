@@ -19,16 +19,27 @@ const Cart = () => {
 	const totalAmountTax = getTotalCartAmountTax();
 	const totalCartAmountWithShipping = getTotalCartAmountWithShipping();
 
+	if (totalAmount === 0) {
+		return (
+			<div>
+				<h1 data-cy='emptyCart'>Cart Empty</h1>
+				<h4>Please add an item</h4>
+			</div>
+		);
+	}
+
 	return (
 		<div className='cart'>
 			<div>
 				<h1> Your cart items </h1>
 			</div>
-			{/* Uses .map() to lay out all product cards product card layout can be found in the ./Pages/Cart/CartItem file and infomation from the PRODUCTS.js (mock API data) */}
+			{/* Uses .map() to lay out all product cards product card layout can be found in the ./Pages/Cart/CartItem file and information from the PRODUCTS.js (mock API data) */}
 			<div className='cartItems'>
 				{PRODUCTS.map((product) => {
 					if (cartItems[product.id] !== 0) {
 						return <CartItem data={product} />;
+					} else {
+						return console.log(cartItems);
 					}
 				})}
 			</div>
