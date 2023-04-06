@@ -1,5 +1,3 @@
-/// <reference types="cypress" />
-
 describe("Get a 200 status from home endpoint", () => {
 	it("Get a 200 status", () => {
 		cy.visit("http://localhost:3000/shop");
@@ -34,17 +32,38 @@ describe("Test adding item to shopping cart", () => {
 		cy.get("[data-cy=modalBtn]").click();
 	});
 });
-
 describe("Test cart calculations subtotal, with 10% tax & total with shipping", () => {
-	it("Cart calculations ", () => {
+	it("Cart calculations", () => {
 		cy.visit("http://localhost:3000/shop");
 		cy.url().should("include", "/shop");
 		cy.get("[data-cy=1]").click();
+
 		cy.get("[data-cy=modalBtn]").click();
-		cy.get('[data-cy="cartSubtotal"]').should("contain", `£50`);
-		cy.get('[data-cy="cartSubtotalTax"]').should("contain", `£55`);
-		cy.get('[data-cy="totalPlusShipping"]').should("contain", `£75`);
+		cy.get('[data-cy="qty"]').type("2");
+		cy.get(".countHandler > :nth-child(3)").click();
+		cy.get(".countHandler > :nth-child(1)").click();
+
+		cy.get(".discription > :nth-child(2)").then(($price) => {
+			const price = parseFloat($price.text().replace("£", ""));
+			cy.get('[data-cy="qty"]').then(($qty) => {
+				const qty = parseInt($qty.val());
+				const subtotal = price * qty;
+				const tax = subtotal * 1.1;
+				const total = subtotal * 1.1 + 20;
+				cy.get('[data-cy="cartSubtotal"]').should("contain", `£${subtotal}`);
+				cy.get('[data-cy="cartSubtotalTax"]').should(
+					"contain",
+					`£${tax.toFixed(2)}`
+				);
+				cy.get('[data-cy="totalPlusShipping"]').should(
+					"contain",
+					`£${total.toFixed(2)}`
+				);
+			});
+		});
+
 		cy.get("[data-cy=removeAllBtn]").contains("Remove All").click();
+		cy.get("[data-cy=emptyCart]").contains("Cart Empty");
 	});
 });
 

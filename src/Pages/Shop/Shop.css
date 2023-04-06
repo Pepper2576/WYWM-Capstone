@@ -111,3 +111,7 @@ html {
 	font-weight: normal;
 	text-transform: none;
 }
+.priceEl {
+	display: flex;
+	text-align: left;
+}

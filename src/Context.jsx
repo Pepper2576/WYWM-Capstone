@@ -94,7 +94,7 @@ export const ShopContextProvider = (props) => {
 		getTotalCartAmountWithShipping,
 		getCartItemCount,
 	};
-	console.log(cartItems);
+	// console.log(cartItems);
 	// Wraps the app pages in the ShopContext allowing Context.jsx to become the parent element
 	return (
 		<ShopContext.Provider value={contextValue}>

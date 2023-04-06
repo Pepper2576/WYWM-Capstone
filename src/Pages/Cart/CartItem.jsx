@@ -29,6 +29,7 @@ export const CartItem = (props) => {
 					<input
 						value={cartItems[id]}
 						onChange={(e) => updateCartItemCount(Number(e.target.value), id)}
+						data-cy='qty'
 					/>
 					<button onClick={() => addToCart(id)}>
 						<GrFormAdd />
