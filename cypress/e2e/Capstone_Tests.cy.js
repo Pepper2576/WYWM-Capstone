@@ -36,13 +36,11 @@ describe("Test cart calculations subtotal, with 10% tax & total with shipping", 
 	it("Cart calculations", () => {
 		cy.visit("http://localhost:3000/shop");
 		cy.url().should("include", "/shop");
-		cy.get("[data-cy=1]").click();
-
+		const itemRandom = Math.floor(Math.random() * 7) + 1;
+		cy.get(`[data-cy=${itemRandom}]`).click();
 		cy.get("[data-cy=modalBtn]").click();
-		cy.get('[data-cy="qty"]').type("2");
-		cy.get(".countHandler > :nth-child(3)").click();
-		cy.get(".countHandler > :nth-child(1)").click();
-
+		const random = parseInt(Math.floor(Math.random() * 10));
+		cy.get('[data-cy="qty"]').type(random);
 		cy.get(".discription > :nth-child(2)").then(($price) => {
 			const price = parseFloat($price.text().replace("£", ""));
 			cy.get('[data-cy="qty"]').then(($qty) => {
@@ -61,7 +59,6 @@ describe("Test cart calculations subtotal, with 10% tax & total with shipping", 
 				);
 			});
 		});
-
 		cy.get("[data-cy=removeAllBtn]").contains("Remove All").click();
 		cy.get("[data-cy=emptyCart]").contains("Cart Empty");
 	});
@@ -74,6 +71,19 @@ describe("Test removing all item function in shopping cart", () => {
 		cy.get("[data-cy=1]").click();
 		cy.get("[data-cy=modalBtn]").click();
 		cy.get("[data-cy=checkoutBtn]").contains("Checkout");
+		cy.get(".countHandler > :nth-child(3)").click();
+		cy.get(".countHandler > :nth-child(1)").click();
+		cy.get(".countHandler > :nth-child(1)").click();
+		cy.get("[data-cy=emptyCart]").contains("Cart Empty");
+		cy.get("[data-cy=modalCloseBtn]").contains("X").click();
+		cy.get("[data-cy=1]").click();
+		cy.get("[data-cy=2]").click();
+		cy.get("[data-cy=3]").click();
+		cy.get("[data-cy=4]").click();
+		cy.get("[data-cy=5]").click();
+		cy.get("[data-cy=6]").click();
+		cy.get("[data-cy=7]").click();
+		cy.get("[data-cy=modalBtn]").click();
 		cy.get("[data-cy=removeAllBtn]").contains("Remove All").click();
 		cy.get("[data-cy=emptyCart]").contains("Cart Empty");
 		cy.get("[data-cy=modalCloseBtn]").contains("X").click();
